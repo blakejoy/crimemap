@@ -1,4 +1,4 @@
-from dbhelper import dbhelper
+from dbhelper import DBHelper
 from flask import Flask,render_template,request
 
 app = Flask(__name__)
@@ -18,6 +18,14 @@ def add():
     try:
         data = request.form.get('userinput')
         DB.add_input(data)
+    except Exception as e:
+        print e
+    return home()
+
+@app.route('/clear')
+def clear():
+    try:
+        DB.clear_all()
     except Exception as e:
         print e
     return home()
