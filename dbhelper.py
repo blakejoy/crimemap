@@ -3,7 +3,7 @@ import dbconfig
 
 class DBHelper:
     def connect(self, database="crimemap"):
-        return pymysql.connect(host='localhost',user=dbconfig.db_user,password=dbconfig.password,db=database)
+        return pymysql.connect(host='localhost',user=dbconfig.db_user,password=dbconfig.db_password,db=database)
 
     def get_all_inputs(self):
         connection = self.connect()
@@ -22,7 +22,6 @@ class DBHelper:
             with connection.cursor() as cursor:
                 cursor.execute(query)
                 connection.commit()
-            return cursor.fetchall()
         finally:
             connection.close()
 
@@ -33,6 +32,5 @@ class DBHelper:
             with connection.cursor() as cursor:
                 cursor.execute(query)
                 connection.commit()
-            return cursor.fetchall()
         finally:
             connection.close()
