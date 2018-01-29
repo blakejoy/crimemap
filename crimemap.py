@@ -28,6 +28,18 @@ def add():
         print(e)
     return home()
 
+@app.route('/submitcrime', methods=['POST'])
+def submitcrime():
+    category = request.form.get("category")
+    date = request.form.get("date")
+    longitude = request.form.get("longitude")
+    latitude = request.form.get("latitude")
+    description = request.form.get("description")
+    DB.add_crime(category, date, latitude, longitude, description)
+    return home()
+
+
+
 @app.route('/clear')
 def clear():
     try:
