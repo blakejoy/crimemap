@@ -25,7 +25,7 @@ def add():
         data = request.form.get('userinput')
         DB.add_input(data)
     except Exception as e:
-        print =(e)
+        print(e)
     return home()
 
 @app.route('/clear')
