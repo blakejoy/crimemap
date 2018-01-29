@@ -16,11 +16,4 @@ class MockDBHelper:
                 'description': "This is a description"
                 }]
 
-    def get_all_inputs(self):
-        pass
 
-    def add_input(self,data):
-        pass
-
-    def clear_all(self):
-        pass
