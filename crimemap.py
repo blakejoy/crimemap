@@ -19,7 +19,7 @@ app = Flask(__name__)
 DB = DBHelper()
 
 @app.route('/')
-def home(erro_message=None):
+def home(error_message=None):
     crimes = DB.get_all_crimes()
     crimes = json.dumps(crimes)
     return render_template("home.html", crimes=crimes,categories=categories,error_message=error_message)
